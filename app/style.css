@@ -1,0 +1,140 @@
+/* Meridian Statistics — layout, cards, charts and responsive rules. */
+
+:root {
+  --ink: #123332;
+  --ink-soft: #3d5a57;
+  --paper: #f7f3ea;
+  --card: #fffdf7;
+  --line: #ddd3bd;
+  --teal: #0f766e;
+  --teal-deep: #0b4f4a;
+  --amber: #d97706;
+  --amber-soft: #fbeed3;
+  --rose: #b23a48;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.55 Georgia, "Times New Roman", serif;
+}
+
+h1, h2, h3, .brand-text, button, select, input, .kpi-num, .stat-num {
+  font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+a { color: var(--teal-deep); }
+
+/* Header */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  padding: 16px 28px;
+  background: var(--teal-deep);
+  color: #f3efe2;
+}
+.brand { display: flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 3px solid var(--amber);
+  background: linear-gradient(90deg, transparent 46%, var(--amber) 46%, var(--amber) 54%, transparent 54%);
+}
+.brand-text { font-size: 22px; font-weight: 700; letter-spacing: .2px; }
+.brand-text em { font-style: normal; font-weight: 400; color: #cfe3dd; margin-left: 6px; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.site-nav a {
+  color: #e8f0ec; text-decoration: none; padding: 7px 13px; border-radius: 999px;
+  font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14.5px;
+}
+.site-nav a:hover { background: rgba(255, 255, 255, .12); }
+.site-nav a.active { background: var(--amber); color: #22160a; font-weight: 600; }
+
+/* Page frame */
+.page { max-width: 1120px; margin: 0 auto; padding: 30px 22px 48px; }
+.site-footer {
+  max-width: 1120px; margin: 0 auto; padding: 20px 22px 40px;
+  border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14px;
+}
+
+/* Hero and KPI strip */
+.hero h1 { font-size: 38px; line-height: 1.12; margin: 4px 0 10px; }
+.hero .lede { font-size: 18px; color: var(--ink-soft); max-width: 720px; margin: 0 0 22px; }
+.kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 22px 0 30px; }
+.kpi { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.kpi-num { font-size: 30px; font-weight: 700; color: var(--teal-deep); }
+.kpi-label { font-size: 13.5px; color: var(--ink-soft); margin-top: 2px; }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin: 8px 0 18px; }
+.controls label { display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; color: var(--ink-soft); }
+.controls input, .controls select {
+  font-size: 15px; padding: 9px 12px; border: 1px solid var(--line);
+  border-radius: 9px; background: var(--card); color: var(--ink); min-width: 180px;
+}
+.result-count { font-size: 14px; color: var(--ink-soft); margin-left: auto; }
+
+/* Country cards */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.country-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px; text-decoration: none; color: inherit; display: block;
+}
+.country-card:hover { border-color: var(--teal); box-shadow: 0 4px 16px rgba(18, 51, 50, .10); }
+.country-card h3 { margin: 0 0 2px; font-size: 21px; }
+.country-card .region { font-size: 13px; letter-spacing: .6px; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+.card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin-top: 12px; }
+.stat-num { font-size: 18px; font-weight: 700; }
+.stat-label { font-size: 12.5px; color: var(--ink-soft); }
+
+/* Sections, panels, tables */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin: 18px 0; }
+.panel h2 { margin-top: 0; font-size: 23px; }
+.panel h3 { font-size: 17px; margin: 16px 0 8px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; color: var(--ink-soft); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.src { color: var(--ink-soft); font-size: 13px; }
+td.win { background: var(--amber-soft); font-weight: 700; }
+
+/* Charts */
+.chart { width: 100%; height: auto; display: block; }
+.chart .bar { fill: var(--teal); }
+.chart .bar.alt { fill: var(--amber); }
+.chart .line-path { fill: none; stroke: var(--teal-deep); stroke-width: 2.5; }
+.chart .area { fill: rgba(15, 118, 110, .16); }
+.chart text { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: var(--ink-soft); }
+.chart .axis { stroke: var(--line); stroke-width: 1; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+.legend .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+/* Country header */
+.country-head { display: flex; flex-wrap: wrap; gap: 14px 26px; align-items: baseline; }
+.country-head h1 { font-size: 36px; margin: 0; }
+.fact-line { color: var(--ink-soft); font-size: 15.5px; }
+.back-link { font-size: 14.5px; text-decoration: none; }
+.release-list { margin: 0; padding-left: 18px; }
+.release-list li { margin: 6px 0; }
+.empty-note { color: var(--ink-soft); font-style: italic; padding: 18px 0; }
+
+/* Phone layout */
+@media (max-width: 760px) {
+  .page { padding: 20px 14px 36px; }
+  .hero h1 { font-size: 29px; }
+  .kpi-strip { grid-template-columns: 1fr 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .controls input, .controls select { min-width: 140px; width: 100%; }
+  .controls label { flex: 1 1 140px; }
+  .result-count { margin-left: 0; }
+  .site-header { padding: 14px 16px; }
+  table { font-size: 14px; }
+}
